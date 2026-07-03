@@ -8,9 +8,11 @@ find-references, and document-symbol lookups on Spade code.
 ## What's in here
 
 - `.claude-plugin/marketplace.json`: the marketplace manifest. It declares one
-  plugin, `spade-lsp`, whose `lspServers` entry maps the `.spade` extension to
-  the `spade-language-server` command.
-- `plugins/spade-lsp/`: the plugin manifest and its README.
+  plugin, `spade-lsp`.
+- `plugins/spade-lsp/.lsp.json`: the LSP server definition. It maps the `.spade`
+  extension to the `spade-language-server` command over stdio. This file is what
+  Claude Code reads to register the server.
+- `plugins/spade-lsp/.claude-plugin/plugin.json`: the plugin manifest.
 
 ## Prerequisites
 
@@ -51,11 +53,17 @@ Open a `.spade` file and ask Claude to look up a symbol to confirm it responds.
 
 If you would rather not install the standalone binary, point the server at
 `swim lsp`, which builds `spade-language-server` on first use and then runs it.
-In your fork, set `lspServers.spade` in `marketplace.json` to:
+In your fork, edit `plugins/spade-lsp/.lsp.json`:
 
 ```json
-"command": "swim",
-"args": ["lsp"]
+{
+  "spade": {
+    "command": "swim",
+    "args": ["lsp"],
+    "transport": "stdio",
+    "extensionToLanguage": { ".spade": "spade" }
+  }
+}
 ```
 
 One caveat: on its first run in a project, `swim lsp` compiles the server and
