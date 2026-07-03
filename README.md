@@ -65,10 +65,8 @@ after any `swim clean`.
 
 ## Notes
 
-- The server operates on a swim project. Open or launch Claude Code from the
-  directory containing `swim.toml` so the server can resolve the project.
-- Claude Code loads `lspServers` only from git-cloned marketplaces, which is why
-  this ships as a repository rather than a local directory.
+The server operates on a swim project. Open or launch Claude Code from the
+directory containing `swim.toml` so the server can resolve the project.
 
 ## Uninstall
 

@@ -11,15 +11,7 @@
       "version": "0.1.0",
       "source": "./plugins/spade-lsp",
       "category": "development",
-      "strict": false,
-      "lspServers": {
-        "spade": {
-          "command": "spade-language-server",
-          "extensionToLanguage": {
-            ".spade": "spade"
-          }
-        }
-      }
+      "strict": false
     }
   ]
 }

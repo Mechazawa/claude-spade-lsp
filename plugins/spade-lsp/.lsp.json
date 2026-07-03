@@ -1,0 +1,9 @@
+{
+  "spade": {
+    "command": "spade-language-server",
+    "transport": "stdio",
+    "extensionToLanguage": {
+      ".spade": "spade"
+    }
+  }
+}
